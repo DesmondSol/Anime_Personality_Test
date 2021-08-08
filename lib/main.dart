@@ -16,7 +16,9 @@ class MyAppState extends State<MyApp> {
   var qIndex = 0;
 
   void questionanswered() {
-    qIndex++;
+    setState(() {
+      qIndex++;
+    });
     print(qIndex);
   }
 
@@ -112,7 +114,7 @@ class MyAppState extends State<MyApp> {
           ),
           body: Column(
             children: [
-              Text(questions.first),
+              Text(questions[qIndex]),
               ElevatedButton(
                   onPressed: pressedAns, //standard function calling
                   child: Text('answer 1')),
