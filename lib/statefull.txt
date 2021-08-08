@@ -27,8 +27,8 @@ class MyAppState extends State<MyApp> {
     this.no = no;
     print('$no st button pressed');
   }
-
-  @override
+                                 
+   @override
   Widget build(BuildContext context) {
     var questions = [
       'which anime do you prefer',
@@ -115,8 +115,7 @@ class MyAppState extends State<MyApp> {
           ),
           body: Column(
             children: [
-              question(questions[qIndex]), //chaNGE recorded
-
+              Text(questions[qIndex]),
               ElevatedButton(
                   onPressed: pressedAns, //standard function calling
                   child: Text('answer 1')),
