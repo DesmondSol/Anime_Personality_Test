@@ -17,17 +17,7 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   int no = 0;
   var qIndex = 0;
-
-  void questionanswered() {
-    setState(() {
-      qIndex++;
-    });
-    print(qIndex);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    const questions = [
+ final questions = const [
       {
         //maps identifier inside a list
         'questionText': 'which anime do you prefer',
