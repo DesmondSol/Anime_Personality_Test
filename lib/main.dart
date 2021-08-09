@@ -125,10 +125,20 @@ class MyAppState extends State<MyApp> {
               answer(questionanswered),
               answer(questionanswered),
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.teal,
+                      onPrimary: Colors.white,
+                      onSurface: Colors.grey),
                   onPressed: () => questionanswered(),
                   child: Text('working answer'))
             ],
           )),
+      theme: ThemeData(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.teal,
+                  onPrimary: Colors.white,
+                  onSurface: Colors.grey))),
     );
   }
 }
