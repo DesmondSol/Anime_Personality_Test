@@ -27,11 +27,11 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
+    const questions = [
       {
         //maps identifier inside a list
         'questionText': 'which anime do you prefer',
-        'answersText': [
+        'answerText': [
           'Naruto',
           'One Punch Man',
           'my hero acadamea',
@@ -49,6 +49,7 @@ class MyAppState extends State<MyApp> {
           'fairy tale',
           'bleach',
           'tokyo ghoul',
+          'naruto'
         ],
       },
       {
@@ -62,7 +63,7 @@ class MyAppState extends State<MyApp> {
         ]
       },
       {
-        'questionText': 'how mich hours did you spent enjoying them',
+        'questionText': 'how much hours did you spent enjoying them',
         'answerText': [
           'less than week = 168 hrs',
           'less than month =730.001 hrs',
@@ -82,12 +83,14 @@ class MyAppState extends State<MyApp> {
       {
         'questionText': 'which genere interests you',
         'answerText': [
+          'Kodomo Manga: Comics for little kids',
           'Shōnen Manga: Comics for young teenage boys',
           'Shōjo Manga: Comics for young teenage girls',
           'Seinen Manga: Comics for young adult males',
           'Seijin Manga: Adult comics for males',
           'Redisu (Lady’s) Manga: Comics for young adult females',
           'Dōjinshi Manga: Comic publication that’s written by and for amateurs',
+          'Yonkoma Manga: Four-panel comics (usually published in newspapers)',
           'Gekiga Manga: Comics focusing on serious topics geared toward mature audiences'
         ]
       },
@@ -124,6 +127,8 @@ class MyAppState extends State<MyApp> {
           'Thriller',
           'Romance',
           'Westerns',
+          'Dystopian',
+          'Contemporary',
         ]
       },
     ];

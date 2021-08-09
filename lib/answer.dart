@@ -9,6 +9,9 @@ class Answer extends StatelessWidget {
     return Container(
         width: double.infinity,
         margin: EdgeInsets.fromLTRB(14, 4, 14, 4),
-        child: ElevatedButton(onPressed: SHandler, child: Text(answerText)));
+        child: ElevatedButton(
+          onPressed: SHandler,
+          child: Text(answerText),
+        ));
   }
 }
