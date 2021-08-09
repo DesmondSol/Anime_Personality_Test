@@ -25,11 +25,6 @@ class MyAppState extends State<MyApp> {
     print(qIndex);
   }
 
-  // pressedAns({int no = 1}) {
-  //   this.no = no;
-  //   print('$no st button pressed');
-  // }
-
   @override
   Widget build(BuildContext context) {
     var questions = [
@@ -140,20 +135,11 @@ class MyAppState extends State<MyApp> {
           ),
           body: Column(
             children: [
-              question(questions[qIndex]['questionText']
-                  .toString()), //chaNGE recorded
-              answer(questionanswered),
-              answer(questionanswered),
-              answer(questionanswered),
-              answer(questionanswered),
-              answer(questionanswered),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.teal,
-                      onPrimary: Colors.white,
-                      onSurface: Colors.grey),
-                  onPressed: () => questionanswered(),
-                  child: Text('working answer'))
+              question(questions[qIndex]['questionText'].toString()),
+              ...(questions[qIndex]['answerText'] as List<String>)
+                  .map((answer) {
+                return Answer(questionanswered, answer);
+              }).toList()
             ],
           )),
       theme: ThemeData(
