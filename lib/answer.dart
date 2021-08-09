@@ -7,6 +7,7 @@ class answer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
+        margin: EdgeInsets.fromLTRB(14, 4, 14, 4),
         child: ElevatedButton(onPressed: SHandler, child: Text('answer 1')));
   }
 }
