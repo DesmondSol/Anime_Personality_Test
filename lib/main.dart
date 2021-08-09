@@ -1,5 +1,7 @@
+import 'package:demo_flutter/answer.dart';
 import 'package:flutter/material.dart';
 import './question.dart';
+import 'answer.dart';
 
 void main() {
   runApp(MyApp());
@@ -117,19 +119,11 @@ class MyAppState extends State<MyApp> {
             children: [
               question(questions[qIndex]), //chaNGE recorded
 
-              ElevatedButton(
-                  onPressed: pressedAns, //standard function calling
-                  child: Text('answer 1')),
-              ElevatedButton(
-                  onPressed: () =>
-                      print("answer 2 is chosen"), //anonymous inline fuction
-                  child: Text('answer 2')),
-              ElevatedButton(
-                  onPressed: () {
-                    //anonymous anaother way of function calling
-                    print('third button pressed');
-                  },
-                  child: Text('answer 3')),
+              answer(pressedAns),
+              answer(questionanswered),
+              answer(questionanswered),
+              answer(questionanswered),
+              answer(questionanswered),
               ElevatedButton(
                   onPressed: () => questionanswered(),
                   child: Text('working answer'))
