@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'showresult.dart';
 
 class Result extends StatelessWidget {
-  final String _resultText;
-  Result(this._resultText);
+  final List<Map<String, String>> results;
+  final int randomResult;
+  const Result({required this.results, required this.randomResult});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: double.infinity,
-        margin: EdgeInsets.all(10),
-        child: Text(
-          _resultText,
-          style: TextStyle(fontSize: 28),
-          textAlign: TextAlign.center,
-        ));
+    return Center(
+        //else statement
+        child: Column(children: [
+      ShowResult(results[randomResult]['Title'].toString()),
+      ShowResult(results[randomResult]['detail'].toString())
+    ]));
   }
 }

@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:demo_flutter/answer.dart';
+import 'package:demo_flutter/quiz.dart';
 import 'package:demo_flutter/result.dart';
+import 'package:demo_flutter/showresult.dart';
 import 'package:flutter/material.dart';
 import './question.dart';
 import 'answer.dart';
@@ -183,22 +185,11 @@ class _MyAppState extends State<MyApp> {
             title: Text('anime personality check'),
           ),
           body: _qIndex < _questions.length //if statement
-              ? Column(
-                  children: [
-                    question(_questions[_qIndex]['questionText'].toString()),
-                    ...(_questions[_qIndex]['answerText'] as List<String>)
-                        .map((answer) {
-                      return Answer(_questionanswered, answer);
-                    }).toList()
-                  ],
-                )
-              : Center(
-                  //else statement
-
-                  child: Column(children: [
-                  Result(_results[_randomResult()]['Title'].toString()),
-                  Result(_results[_randomResult()]['detail'].toString())
-                ]))),
+              ? Quiz(
+                  questions: _questions,
+                  questionanswered: _questionanswered,
+                  qIndex: _qIndex)
+              : Result(results: _results, randomResult: _randomResult())),
       theme: ThemeData(
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
