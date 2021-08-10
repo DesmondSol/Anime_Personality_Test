@@ -4,7 +4,11 @@ import 'showresult.dart';
 class Result extends StatelessWidget {
   final List<Map<String, String>> results;
   final int totalScore;
-  const Result({required this.results, required this.totalScore});
+  final VoidCallback resetTest;
+  const Result(
+      {required this.results,
+      required this.totalScore,
+      required this.resetTest});
 
   int indexAns() {
     if (totalScore < 19) {
@@ -30,7 +34,8 @@ class Result extends StatelessWidget {
         //else statement
         child: Column(children: [
       ShowResult(results[indexAns()]['Title'].toString()),
-      ShowResult(results[indexAns()]['detail'].toString())
+      ShowResult(results[indexAns()]['detail'].toString()),
+      TextButton(onPressed: resetTest, child: Text('Restart Test'))
     ]));
   }
 }

@@ -22,7 +22,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _qIndex = 0;
   var _totalScore = 0;
-  Random ran = new Random();
+  // Random ran = new Random();
 
   final _questions = const [
     {
@@ -203,6 +203,15 @@ class _MyAppState extends State<MyApp> {
     print(_totalScore);
   }
 
+  void _resetTest() {
+    setState(() {
+      _qIndex = 0;
+      _totalScore = 0;
+    });
+
+    print('reset');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -215,7 +224,11 @@ class _MyAppState extends State<MyApp> {
                   questions: _questions,
                   questionanswered: _questionanswered,
                   qIndex: _qIndex)
-              : Result(results: _results, totalScore: _totalScore)),
+              : Result(
+                  results: _results,
+                  totalScore: _totalScore,
+                  resetTest: _resetTest,
+                )),
       theme: ThemeData(
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
