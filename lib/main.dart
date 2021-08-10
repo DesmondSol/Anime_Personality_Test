@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:demo_flutter/answer.dart';
+import 'package:demo_flutter/result.dart';
 import 'package:flutter/material.dart';
 import './question.dart';
 import 'answer.dart';
@@ -17,6 +20,9 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   int no = 0;
   var qIndex = 0;
+
+  Random ran = new Random();
+
   final questions = const [
     {
       //maps identifier inside a list
@@ -122,12 +128,52 @@ class MyAppState extends State<MyApp> {
       ]
     },
   ];
-
+  final results = [
+    {
+      'Title': 'The Newbie',
+      'detail':
+          'newbies have just discovered their new found love for anime and it is likely they are only a few episodes deep in one of the very mainstream anime like Naruto, Bleach, Tokyo Ghoul etc',
+    },
+    {
+      'Title': 'The Anime Otaku',
+      'detail':
+          ':extreme fans and experts of anime and interact with other fans online and in real life',
+    },
+    {
+      'Title': 'Anime Hikikomori',
+      'detail':
+          'these folks don’t enjoy interacting in the real world and like to stay at home, they pass their time playing games, reading manga, light novels and watching tons of anime',
+    },
+    {
+      'Title': 'The Weeaboo',
+      'detail':
+          'a person who is usually of western origin and has a seemingly unhealthy obsession with anime',
+    },
+    {
+      'Title': 'Waifu Fans',
+      'detail':
+          'They are fans who get super obsessive over a certain character and develop a real crush on the characters',
+    },
+    {
+      'Title': 'Nijikon',
+      'detail':
+          'fans who are no longer interested in the anime but are specific characters of anime and manga. They have a strong obsession with a character and will either have a deep yearning to ‘be’ the character or just are only interested in specific 2D characters.',
+    },
+    {
+      'Title': 'Bandwagon',
+      'detail':
+          ' anime fans who jump on the bandwagon as they see it rising to popularity.'
+    }
+  ];
   void questionanswered() {
     setState(() {
       qIndex++;
     });
     print(qIndex);
+  }
+
+  int randomResult() {
+    return ran.nextInt(7);
   }
 
   @override
@@ -149,8 +195,11 @@ class MyAppState extends State<MyApp> {
                 )
               : Center(
                   //else statement
-                  child: Text('you are a pure otaku'),
-                )),
+
+                  child: Column(children: [
+                  Result(results[randomResult()]['Title'].toString()),
+                  Result(results[randomResult()]['detail'].toString())
+                ]))),
       theme: ThemeData(
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
