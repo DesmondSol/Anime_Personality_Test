@@ -137,15 +137,20 @@ class MyAppState extends State<MyApp> {
           appBar: AppBar(
             title: Text('anime personality check'),
           ),
-          body: Column(
-            children: [
-              question(questions[qIndex]['questionText'].toString()),
-              ...(questions[qIndex]['answerText'] as List<String>)
-                  .map((answer) {
-                return Answer(questionanswered, answer);
-              }).toList()
-            ],
-          )),
+          body: qIndex < questions.length //if statement
+              ? Column(
+                  children: [
+                    question(questions[qIndex]['questionText'].toString()),
+                    ...(questions[qIndex]['answerText'] as List<String>)
+                        .map((answer) {
+                      return Answer(questionanswered, answer);
+                    }).toList()
+                  ],
+                )
+              : Center(
+                  //else statement
+                  child: Text('you are a pure otaku'),
+                )),
       theme: ThemeData(
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
