@@ -13,17 +13,16 @@ void main() {
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  int no = 0;
-  var qIndex = 0;
+class _MyAppState extends State<MyApp> {
+  var _qIndex = 0;
 
   Random ran = new Random();
 
-  final questions = const [
+  final _questions = const [
     {
       //maps identifier inside a list
       'questionText': 'which anime do you prefer',
@@ -128,7 +127,7 @@ class MyAppState extends State<MyApp> {
       ]
     },
   ];
-  final results = [
+  final _results = [
     {
       'Title': 'The Newbie',
       'detail':
@@ -165,14 +164,14 @@ class MyAppState extends State<MyApp> {
           ' anime fans who jump on the bandwagon as they see it rising to popularity.'
     }
   ];
-  void questionanswered() {
+  void _questionanswered() {
     setState(() {
-      qIndex++;
+      _qIndex++;
     });
-    print(qIndex);
+    print(_qIndex);
   }
 
-  int randomResult() {
+  int _randomResult() {
     return ran.nextInt(7);
   }
 
@@ -183,13 +182,13 @@ class MyAppState extends State<MyApp> {
           appBar: AppBar(
             title: Text('anime personality check'),
           ),
-          body: qIndex < questions.length //if statement
+          body: _qIndex < _questions.length //if statement
               ? Column(
                   children: [
-                    question(questions[qIndex]['questionText'].toString()),
-                    ...(questions[qIndex]['answerText'] as List<String>)
+                    question(_questions[_qIndex]['questionText'].toString()),
+                    ...(_questions[_qIndex]['answerText'] as List<String>)
                         .map((answer) {
-                      return Answer(questionanswered, answer);
+                      return Answer(_questionanswered, answer);
                     }).toList()
                   ],
                 )
@@ -197,8 +196,8 @@ class MyAppState extends State<MyApp> {
                   //else statement
 
                   child: Column(children: [
-                  Result(results[randomResult()]['Title'].toString()),
-                  Result(results[randomResult()]['detail'].toString())
+                  Result(_results[_randomResult()]['Title'].toString()),
+                  Result(_results[_randomResult()]['detail'].toString())
                 ]))),
       theme: ThemeData(
           elevatedButtonTheme: ElevatedButtonThemeData(
@@ -209,5 +208,5 @@ class MyAppState extends State<MyApp> {
     );
   }
 }
-//flutter run -d chrome --web-renderer html   use to execute
+//flutter run -d chrome --web-renderer html   use this to execute
 //_appname this is now a private variable
