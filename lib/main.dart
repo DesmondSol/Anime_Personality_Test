@@ -200,7 +200,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _qIndex++;
     });
-    print(_totalScore);
+    // print(_totalScore);
   }
 
   void _resetTest() {
@@ -209,7 +209,7 @@ class _MyAppState extends State<MyApp> {
       _totalScore = 0;
     });
 
-    print('reset');
+    //  print('reset');
   }
 
   @override
