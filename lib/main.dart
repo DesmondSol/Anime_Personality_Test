@@ -7,6 +7,7 @@ import 'package:demo_flutter/showresult.dart';
 import 'package:flutter/material.dart';
 import './question.dart';
 import 'answer.dart';
+import 'package:video_player/video_player.dart';
 
 void main() {
   runApp(MyApp());
@@ -211,6 +212,7 @@ class _MyAppState extends State<MyApp> {
 
     //  print('reset');
   }
+
 //a surprise is coming
   @override
   Widget build(BuildContext context) {

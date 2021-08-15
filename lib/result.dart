@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'showresult.dart';
-
-//import 'package:video_player/video_player.dart';
+import 'package:video_player/video_player.dart';
 
 class Result extends StatelessWidget {
   final List<Map<String, String>> results;
@@ -37,7 +36,62 @@ class Result extends StatelessWidget {
         child: Column(children: [
       ShowResult(results[indexAns()]['Title'].toString()),
       ShowResult(results[indexAns()]['detail'].toString()),
-      TextButton(onPressed: resetTest, child: Text('Restart Test'))
+      TextButton(onPressed: resetTest, child: Text('Restart Test')),
     ]));
+  }
+}
+
+class result extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _result();
+}
+
+class _result extends State {
+  VideoPlayerController _controller = VideoPlayerController.asset(
+    'assets/r.mp4',
+  );
+  late Future<void> _initVPF;
+
+  @override
+  void initState() {
+    _controller = VideoPlayerController.asset(
+      'assets/r.mp4',
+    );
+    _initVPF = _controller.initialize();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Column(
+      children: [
+        Container(
+          child: (_controller != null
+              ? VideoPlayer(
+                  _controller,
+                )
+              : Container()),
+        ),
+        FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              _controller.value.isPlaying
+                  ? _controller.pause()
+                  : _controller.play();
+            });
+          },
+          child: Icon(
+            _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+          ),
+        ),
+      ],
+    ));
   }
 }
