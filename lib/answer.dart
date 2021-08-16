@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
-  final VoidCallback SHandler;
+  final VoidCallback
+      SHandler; //this is the new pointer accepting format because of null safety issues with "void function" pointer call back method
   final String answerText;
   Answer(this.SHandler, String this.answerText);
   @override

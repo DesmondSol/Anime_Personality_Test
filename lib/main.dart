@@ -1,13 +1,8 @@
-import 'dart:math';
-
-import 'package:demo_flutter/answer.dart';
 import 'package:demo_flutter/quiz.dart';
 import 'package:demo_flutter/result.dart';
-import 'package:demo_flutter/showresult.dart';
 import 'package:flutter/material.dart';
-import './question.dart';
-import 'answer.dart';
-import 'package:video_player/video_player.dart';
+
+//hey there melu i tried putting some comments in places i thought that needed a little more clarification but i know u are awesome so have fun!!! ps. please run it first and see what it does probably on chrome cuz its faster you will find the running command at the bottom if you need it😜😜😊
 
 void main() {
   runApp(MyApp());
@@ -25,6 +20,7 @@ class _MyAppState extends State<MyApp> {
   var _totalScore = 0;
   // Random ran = new Random();
 
+// here are a map of questions and also their answers
   final _questions = const [
     {
       //maps identifier inside a list
@@ -156,6 +152,7 @@ class _MyAppState extends State<MyApp> {
       ]
     },
   ];
+  // here you will find a map of results to be shown at the end of the exercise
   final _results = [
     {
       //13+5
@@ -195,7 +192,9 @@ class _MyAppState extends State<MyApp> {
           ' anime fans who jump on the bandwagon as they see it rising to popularity.'
     }
   ];
+
   void _questionanswered(String score1) {
+    //this is the part where it tracks the states and change to next question not the whole page
     var score = int.parse(score1);
     _totalScore += score;
     setState(() {
@@ -205,6 +204,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _resetTest() {
+    //this is for the execution of state to reset the app at the end with the button
     setState(() {
       _qIndex = 0;
       _totalScore = 0;
@@ -213,7 +213,6 @@ class _MyAppState extends State<MyApp> {
     //  print('reset');
   }
 
-//a surprise is coming
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -240,5 +239,5 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-//flutter run -d chrome --web-renderer html   use this to execute
+//flutter run -d chrome --web-renderer html   -use this to execute on chrome browser if 'flutter run' is not workin or showing blank screen 
 //_appname this is now a private variable

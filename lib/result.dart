@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'showresult.dart';
-import 'package:video_player/video_player.dart';
+//import 'package:video_player/video_player.dart';  //not currently in use but it seems to be depriciated cuz on null saftey issues so i dunno its new replacements so thats is the problem i guess
 
 class Result extends StatelessWidget {
   final List<Map<String, String>> results;
@@ -37,61 +37,62 @@ class Result extends StatelessWidget {
       ShowResult(results[indexAns()]['Title'].toString()),
       ShowResult(results[indexAns()]['detail'].toString()),
       TextButton(onPressed: resetTest, child: Text('Restart Test')),
+      //it would be best if u can add the video under here which is located at assets/r.mp4
     ]));
   }
 }
+// this part is not working so ...
+// class result extends StatefulWidget {
+//   @override
+//   State<StatefulWidget> createState() => _result();
+// }
 
-class result extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _result();
-}
+// class _result extends State {
+//   VideoPlayerController _controller = VideoPlayerController.asset(
+//     'assets/r.mp4',
+//   );
+//   late Future<void> _initVPF;
 
-class _result extends State {
-  VideoPlayerController _controller = VideoPlayerController.asset(
-    'assets/r.mp4',
-  );
-  late Future<void> _initVPF;
+//   @override
+//   void initState() {
+//     _controller = VideoPlayerController.asset(
+//       'assets/r.mp4',
+//     );
+//     _controller.initialize();
+//     super.initState();
+//   }
 
-  @override
-  void initState() {
-    _controller = VideoPlayerController.asset(
-      'assets/r.mp4',
-    );
-    _controller.initialize();
-    super.initState();
-  }
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Column(
-      children: [
-        Container(
-          child: (_controller != null
-              ? VideoPlayer(
-                  _controller,
-                )
-              : Container()),
-        ),
-        FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              _controller.value.isPlaying
-                  ? _controller.pause()
-                  : _controller.play();
-            });
-          },
-          child: Icon(
-            _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-          ),
-        ),
-      ],
-    ));
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//         child: Column(
+//       children: [
+//         Container(
+//           child: (_controller != null
+//               ? VideoPlayer(
+//                   _controller,
+//                 )
+//               : Container()),
+//         ),
+//         FloatingActionButton(
+//           onPressed: () {
+//             setState(() {
+//               _controller.value.isPlaying
+//                   ? _controller.pause()
+//                   : _controller.play();
+//             });
+//           },
+//           child: Icon(
+//             _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+//           ),
+//         ),
+//       ],
+//     ));
+//   }
+// }
