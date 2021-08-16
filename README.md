@@ -1,6 +1,7 @@
 # demo_flutter
 
-A new Flutter project.
+A personality test for anime lovers with a little surprise hehehe🤣😜😜😜😜.
+
 
 ## Getting Started
 
