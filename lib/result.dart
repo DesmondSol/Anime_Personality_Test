@@ -57,7 +57,7 @@ class _result extends State {
     _controller = VideoPlayerController.asset(
       'assets/r.mp4',
     );
-    _initVPF = _controller.initialize();
+    _controller.initialize();
     super.initState();
   }
 
