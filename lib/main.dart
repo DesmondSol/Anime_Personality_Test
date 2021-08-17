@@ -222,27 +222,32 @@ class _MyAppState extends State<MyApp> {
       scaffoldMessengerKey: _messangerKey,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          appBar: AppBar(
-            //actionsIconTheme: IconThemeData(color: Colors.white10, size: 36),
-            backgroundColor: Colors.teal,
-            leading: Icon(Icons.account_box_outlined),
-            leadingWidth: 70,
-            title: const Text('Personality Test for Otakus'),
-            centerTitle: true,
-            actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.info_outline),
-                tooltip: 'About creators',
-                onPressed: () {
-                  _messangerKey.currentState!.showSnackBar(const SnackBar(
-                    content: Text('find me on Telegram:@sol_tig'),
-                    //      duration: Duration(milliseconds: 200),
-                  ));
-                },
-              ),
-            ],
-          ),
-          body: _qIndex < _questions.length //if statement
+        appBar: AppBar(
+          //actionsIconTheme: IconThemeData(color: Colors.white10, size: 36),
+          backgroundColor: Colors.teal,
+          leading: Icon(Icons.account_box_outlined),
+          leadingWidth: 70,
+          title: const Text('Personality Test for Otakus'),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.info_outline),
+              tooltip: 'About creators',
+              onPressed: () {
+                _messangerKey.currentState!.showSnackBar(const SnackBar(
+                  content: Text(
+                    'want to contibute \n find me on Telegram :@sol_tig',
+                    textAlign: TextAlign.center,
+                  ),
+                  backgroundColor: Colors.teal,
+                  //      duration: Duration(milliseconds: 200),
+                ));
+              },
+            ),
+          ],
+        ),
+        body: Center(
+          child: _qIndex < _questions.length //if statement
               ? Quiz(
                   questions: _questions,
                   questionanswered: _questionanswered,
@@ -251,7 +256,9 @@ class _MyAppState extends State<MyApp> {
                   results: _results,
                   totalScore: _totalScore,
                   resetTest: _resetTest,
-                )),
+                ),
+        ),
+      ),
       theme: ThemeData(
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
