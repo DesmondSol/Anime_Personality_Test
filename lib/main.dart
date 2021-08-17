@@ -18,6 +18,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _qIndex = 0;
   var _totalScore = 0;
+
+  final _messangerKey = GlobalKey<ScaffoldMessengerState>();
+
   // Random ran = new Random();
 
 // here are a map of questions and also their answers
@@ -216,37 +219,24 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: _messangerKey,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
-            title: const Text('Anime personality test'),
+            //actionsIconTheme: IconThemeData(color: Colors.white10, size: 36),
+            backgroundColor: Colors.teal,
+            leading: Icon(Icons.account_box_outlined),
+            leadingWidth: 70,
+            title: const Text('Personality Test for Otakus'),
+            centerTitle: true,
             actions: <Widget>[
               IconButton(
                 icon: const Icon(Icons.info_outline),
                 tooltip: 'About creators',
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('This is a snackbar')));
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.navigate_next),
-                tooltip: 'Go to the next page',
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute<void>(
-                    builder: (BuildContext context) {
-                      return Scaffold(
-                        appBar: AppBar(
-                          title: const Text('Next page'),
-                        ),
-                        body: const Center(
-                          child: Text(
-                            'This is the next page',
-                            style: TextStyle(fontSize: 24),
-                          ),
-                        ),
-                      );
-                    },
+                  _messangerKey.currentState!.showSnackBar(const SnackBar(
+                    content: Text('find me on Telegram:@sol_tig'),
+                    //      duration: Duration(milliseconds: 200),
                   ));
                 },
               ),
