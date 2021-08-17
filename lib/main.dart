@@ -218,7 +218,38 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: Text('anime personality check'),
+            title: const Text('Anime personality test'),
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.info_outline),
+                tooltip: 'About creators',
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('This is a snackbar')));
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.navigate_next),
+                tooltip: 'Go to the next page',
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute<void>(
+                    builder: (BuildContext context) {
+                      return Scaffold(
+                        appBar: AppBar(
+                          title: const Text('Next page'),
+                        ),
+                        body: const Center(
+                          child: Text(
+                            'This is the next page',
+                            style: TextStyle(fontSize: 24),
+                          ),
+                        ),
+                      );
+                    },
+                  ));
+                },
+              ),
+            ],
           ),
           body: _qIndex < _questions.length //if statement
               ? Quiz(
