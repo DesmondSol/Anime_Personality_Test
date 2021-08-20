@@ -1,4 +1,4 @@
-import 'dart:html'; //error is sometimes happening here so check this if you found a problem it but works on web
+//import 'dart:html'; //error is sometimes happening here so check this if you found a problem it but works on web
 
 import 'package:demo_flutter/question.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +8,7 @@ import 'answer.dart';
 class Quiz extends StatelessWidget {
   final List<Map<String, Object>> questions;
   final int qIndex;
-  final FunctionStringCallback
+  final Function
       questionanswered; //here it accepts a pointer so becareful here
   Quiz(
       {required this.questions,
